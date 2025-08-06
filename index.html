@@ -6,9 +6,9 @@
     <title>World Clock</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .font-small { font-size: 3rem; font-weight: bold; }
-        .font-medium { font-size: 4rem; font-weight: bold; }
-        .font-large { font-size: 5rem; font-weight: bold; }
+        .font-small { font-size: 2.7rem; font-weight: bold; } /* 90% of 3rem */
+        .font-medium { font-size: 3.6rem; font-weight: bold; } /* 90% of 4rem */
+        .font-large { font-size: 4.5rem; font-weight: bold; } /* 90% of 5rem */
         .ticker-container {
             overflow: hidden;
             white-space: nowrap;
@@ -16,7 +16,7 @@
         }
         .ticker {
             display: inline-block;
-            animation: scroll 20s linear infinite;
+            animation: scroll 18s linear infinite; /* 90% of 20s */
         }
         @keyframes scroll {
             0% { transform: translateX(0); }
@@ -28,51 +28,51 @@
     </style>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen transition-colors duration-300 w-full h-screen">
-    <div id="main-container" class="bg-white dark:bg-gray-800 p-12 rounded-lg shadow-lg text-gray-900 dark:text-gray-100 transition-colors duration-300 relative w-full h-full max-w-7xl flex flex-col justify-between">
-        <div class="absolute top-6 right-6">
+    <div id="main-container" class="bg-white dark:bg-gray-800 p-10 rounded-lg shadow-lg text-gray-900 dark:text-gray-100 transition-colors duration-300 relative w-full h-full max-w-6xl flex flex-col justify-between">
+        <div class="absolute top-5 right-5">
             <button id="menu-toggle" class="text-gray-900 dark:text-gray-100 focus:outline-none">
-                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-11 h-11" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z"></path>
                 </svg>
             </button>
-            <div id="options-menu" class="hidden absolute right-0 mt-2 w-80 bg-gray-200 dark:bg-gray-700 rounded shadow-lg z-10">
-                <button class="block w-full text-left px-8 py-4 text-gray-900 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold text-2xl" data-value="font-small">Small Font</button>
-                <button class="block w-full text-left px-8 py-4 text-gray-900 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold text-2xl" data-value="font-medium">Medium Font</button>
-                <button class="block w-full text-left px-8 py-4 text-gray-900 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold text-2xl" data-value="font-large">Large Font</button>
-                <button class="block w-full text-left px-8 py-4 text-gray-900 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold text-2xl" data-value="dark-mode">Toggle Dark Mode</button>
+            <div id="options-menu" class="hidden absolute right-0 mt-2 w-72 bg-gray-200 dark:bg-gray-700 rounded shadow-lg z-10">
+                <button class="block w-full text-left px-7 py-3 text-gray-900 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold text-xl" data-value="font-small">Small Font</button>
+                <button class="block w-full text-left px-7 py-3 text-gray-900 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold text-xl" data-value="font-medium">Medium Font</button>
+                <button class="block w-full text-left px-7 py-3 text-gray-900 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold text-xl" data-value="font-large">Large Font</button>
+                <button class="block w-full text-left px-7 py-3 text-gray-900 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold text-xl" data-value="dark-mode">Toggle Dark Mode</button>
             </div>
         </div>
-        <div id="clock" class="space-y-16 font-medium flex-1 flex flex-col justify-center">
+        <div id="clock" class="space-y-14 font-medium flex-1 flex flex-col justify-center">
             <div class="flex justify-center">
                 <div class="flex flex-col items-center">
-                    <span class="font-bold text-2xl mb-2">EST</span>
+                    <span class="font-bold text-xl mb-2">EST</span>
                     <span id="est-time"></span>
                 </div>
             </div>
-            <div class="flex justify-between px-16">
+            <div class="flex justify-between px-14">
                 <div class="flex flex-col items-center">
-                    <span class="font-bold text-2xl mb-2">ZULU (UTC)</span>
+                    <span class="font-bold text-xl mb-2">ZULU (UTC)</span>
                     <span id="zulu-time"></span>
                 </div>
                 <div class="flex flex-col items-center">
-                    <span class="font-bold text-2xl mb-2">CST</span>
+                    <span class="font-bold text-xl mb-2">CST</span>
                     <span id="cst-time"></span>
                 </div>
             </div>
-            <div class="flex justify-between px-16">
+            <div class="flex justify-between px-14">
                 <div class="flex flex-col items-center">
-                    <span class="font-bold text-2xl mb-2">MST</span>
+                    <span class="font-bold text-xl mb-2">MST</span>
                     <span id="mst-time"></span>
                 </div>
                 <div class="flex flex-col items-center">
-                    <span class="font-bold text-2xl mb-2">PST</span>
+                    <span class="font-bold text-xl mb-2">PST</span>
                     <span id="pst-time"></span>
                 </div>
             </div>
         </div>
-        <div class="ticker-container bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-lg font-semibold py-2">
+        <div class="ticker-container bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 text-base font-semibold py-2">
             <div class="ticker" id="ticker">
-                <span class="mx-8">CRUZ CASE CLOSURE ODDS: </span>
+                <span class="mx-7">CRUZ CASE CLOSURE ODDS: </span>
                 <span id="ticker-content"></span>
             </div>
         </div>
@@ -114,7 +114,7 @@
             outcomes.forEach(outcome => {
                 const percentage = Math.floor(Math.random() * (90 - 10 + 1)) + 10; // Random percentage between 10% and 90%
                 const odds = Math.random() > 0.5 ? `+${Math.floor(Math.random() * (300 - 100 + 1)) + 100}` : `-${Math.floor(Math.random() * (300 - 100 + 1)) + 100}`; // Random odds between +100/+300 or -100/-300
-                content += `<span class="mx-8">${outcome}: ${percentage}% (${odds})</span>`;
+                content += `<span class="mx-7">${outcome}: ${percentage}% (${odds})</span>`;
             });
 
             tickerContent.innerHTML = content;
